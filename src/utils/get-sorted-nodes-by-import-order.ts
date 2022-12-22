@@ -56,9 +56,11 @@ export const getSortedNodesByImportOrder: GetSortedNodes = (nodes, options) => {
      * If the user has enabled import types to top
      * We add it to the top, even higher than built in modules
      */
-    if (importOrderTypeImportsToTop) {
-        importOrder = [TYPE_IMPORTS_SPECIAL_WORD, ...importOrder];
-    }
+		if (importOrderTypeImportsToTop) {
+			importOrder = [TYPE_IMPORTS_SPECIAL_WORD, ...importOrder];
+		} else {
+			importOrder = [ ...importOrder, TYPE_IMPORTS_SPECIAL_WORD];
+		}
 
     /**
      * Here we are creating a map of { [regex]: [...import statements] }
